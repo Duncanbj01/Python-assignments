@@ -1,0 +1,36 @@
+my_str = "William W. Warhawk"
+
+print("1. ", my_str, '\n')
+
+print("2A. ", my_str[0:7])
+
+print("2B. ", my_str[11:18])
+
+print("2C. ", my_str[14:18])
+
+print("2D. ", my_str[5:7])
+
+print("2E. ", my_str[1:4], '\n')
+
+num = [10, 20, 40, 80]
+
+print("3. ", num, '\n')
+
+num.append(60)
+
+print("4. ", num, '\n')
+
+num.pop(0)
+
+print("5. ", num, '\n')
+
+print("6.____")
+for n in num:
+    
+    print(n)
+
+print('\n')
+
+print("7.____")
+for n in range(len(num)):
+    print(n, num[n])
