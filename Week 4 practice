@@ -1,0 +1,19 @@
+def value_count(num, x):
+    count = 0
+    for ele in num:
+        if(num==x):
+            count = count +1
+    return count
+
+
+num = [4,3,2,1]
+num1 = [1,2,3,1,2,2]
+x=1
+
+
+num2 = [1,2,3,1,2,2]
+x2=2
+
+print('value_count test 2: {}'.format(x, value_count(num, x)))
+print('value_count test 2: {}'.format(x, value_count(num1, x)))
+print('value_count test 2: {}'.format(x2, value_count(num2, x2)))
