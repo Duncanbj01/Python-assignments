@@ -2,8 +2,19 @@
 '(apple orange pear grapefruit)
 ;1
 (car(cdr(cdr'(apple orange pear grapefruit))))
-(caddr'(apple orange pear grapefruit))
 ;2
 (car(car(cdr'((apple orange)(pear grapefruit)))))
 ;3
-(car(cdr'(((apple)(orange)(pear)(grapefruit)))))
+(car(car(cdr(cdr(car'(((apple)(orange)(pear)(grapefruit))))))))
+;4
+(car(car(car(cdr(cdr'(apple(orange)((pear))(((grapefruit)))))))))
+;5
+(car(car(cdr(cdr'((((apple))) ((orange)) (pear) grapefruit)))))
+;6
+(car(cdr(car'((((apple) orange) pear) grapefruit))))
+;7
+(cons 12(list 18))
+;8
+(cons 12(cons 18(null?'())))
+;9
+(cons 12(cons 14(list 18 151)))
