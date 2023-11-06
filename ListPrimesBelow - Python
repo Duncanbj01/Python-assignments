@@ -1,0 +1,23 @@
+prime_list = []
+
+def isPrime(x):
+    isPrime = True
+    if( x <= 3 and x!= 1):
+        return True
+
+    for i in range(2,x):
+        if(x%i == 0):
+            isPrime = False
+
+    return isPrime
+
+def list_prime(n):
+    if(n <=3):
+        prime_list.append(3)
+        prime_list.append(2)
+    else:
+        if isPrime(n):
+            prime_list.append(n)
+        list_prime(n = n-1)
+
+
