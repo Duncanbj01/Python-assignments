@@ -1,1 +1,46 @@
+def isBst(bt):
+    """ Returns true if the binary tree is a binary search tree, otherwise returns false"""
+    #get the current nodes value
+    current = bt[0]
 
+    #get left and right subtree
+    left_subtree = bt[1]
+    right_subtree = bt[2]
+
+    #if left and right subtrees are empty, then the tree has a single node and is a BST.
+    if left_subtree == [] and right_subtree == []:
+        return True
+
+    #if left subtree is empty and right subtree is not empty
+    elif left_subtree == [] and right_subtree != []:
+        #if current node is greater than root of right subtree, then the tree is not a BST
+        if current > right_subtree[0]:
+            return False
+        else:
+            return isBst(right_subtree)
+
+    #if right subtree is empty and left subtree is not empty
+    elif right_subtree == [] and left_subtree != []:
+
+        if current < left_subtree[0]:
+            return False
+        else:
+            return isBst(left_subtree)
+
+    if current < left_subtree[0] or current > right_subtree[0]:
+        return False
+    else:
+        return isBst(left_subtree) and isBst(right_subtree)
+
+tests = [
+[4, [2, [1, [], []], [3, [], []]], [6, [5, [], []], []]], # t
+[4, [2, [1, [], []], [3, [], []]], [6, [9, [], []], []]], # f
+[4, [2, [1, [], []], [3, [], []]], [1, [5, [], []], []]], # f
+[4, [7, [1, [], []], [3, [], []]], [6, [5, [], []], []]], # f
+[4, [2, [1, [], []], [1, [], []]], [6, [5, [], []], []]], # f
+[4, [2, [4, [], []], [3, [], []]], [6, [5, [], []], []]], # f
+[4, [2, [1, [], []], [3, [], []]], [6, [], [9, [], []]]]] # t
+
+
+for i in range(0, len(tests)):
+    print(f"Test Case {i + 1}: {isBst(tests[i])}")
