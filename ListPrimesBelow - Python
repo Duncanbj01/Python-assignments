@@ -1,23 +1,26 @@
-prime_list = []
+def listPrimesBelow(n, i=2):
 
-def isPrime(x):
-    isPrime = True
-    if( x <= 3 and x!= 1):
-        return True
+    primeNoList = []
 
-    for i in range(2,x):
-        if(x%i == 0):
-            isPrime = False
+    if i > n-1:
+        return primeNoList
 
-    return isPrime
+    #defining an inner function is_prime() which will return whether the number is prime or not
+    def is_prime(n, d=3):
+        if n < d * d:
+            return True
+        if n % d == 0:
+            return False
+        return is_prime(n, d + 2)
 
-def list_prime(n):
-    if(n <=3):
-        prime_list.append(3)
-        prime_list.append(2)
-    else:
-        if isPrime(n):
-            prime_list.append(n)
-        list_prime(n = n-1)
+    #declaring a bool which will check if i == 2 or not
+    multi = i != 2
 
+    if not multi or is_prime(i):
+        primeNoList.append(i)
 
+    return primeNoList + listPrimesBelow(n, i + 1 + multi)
+
+print(listPrimesBelow(32))
+print(listPrimesBelow(11))
+print(listPrimesBelow(2))
